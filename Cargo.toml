@@ -1,0 +1,15 @@
+[package]
+name = "double_packet"
+version = "0.1.0"
+authors = ["Zhaofa Li"]
+edition = "2018"
+
+[dependencies]
+tokio = { version = "1", default-features = false, features = ["rt-multi-thread", "macros", "sync"] }
+pcap = { version = "0.8", default-features = false }
+pnet = { version = "0.27", default-features = false }
+
+[profile.release]
+lto = true
+codegen-units = 1
+panic = "abort"
